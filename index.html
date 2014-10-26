@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Custom Bindings</title>
+</head>
+<body>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>href / src</h1>
+
+        <img data-bind="src: imgSrc" />
+        <a data-bind="href: myUrl">Click Me</a>
+        <!-- instead of -->
+        <img data-bind="attr: { src: imgSrc }" />
+        <a data-bind="attr: { href: myUrl }">Click Me</a>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>hidden</h1>
+
+        <form data-bind="hidden: hideForm">
+            ...
+        </form>
+        <!-- instead of -->
+        <form data-bind="visible: !hideForm()">
+            ...
+        </form>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>instantValue</h1>
+
+        <input data-bind="instantValue: val"/>
+        <!-- instead of -->
+        <input data-bind="value: val, valueUpdate: 'afterkeydown'"/>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Toggle</h1>
+
+        <button data-bind="toggle: isHidden">Show / Hide</button>
+        <!-- instead of -->
+        <button data-bind="click: function(){isHidden(!isHidden());}">Show / Hide</button>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Currency</h1>
+
+        <span data-bind="currency: price"></span>
+
+        <!-- Use a different dollar sign -->
+        <span data-bind="currency: price, symbol: '€'"></span>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>timeAgo</h1>
+
+        <div data-bind="timeAgo: dateCreated"></div>
+    </div>
+</div>
+
+
+<script src="js/knockout-3.2.0.js" type="application/javascript"></script>
+</body>
+</html>
